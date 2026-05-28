@@ -3,6 +3,10 @@ name: run-nx-checks
 description: Run nx format, lint, test, and build on affected or specified projects, then fix unambiguous failures
 context: fork
 allowed-tools: Bash, Read, Edit, Write, Grep, Glob
+license: MIT
+metadata:
+  author: Francesco Borzì
+  version: '1.0'
 ---
 
 # Run Nx Checks
@@ -29,7 +33,7 @@ Run nx commands from wherever `nx.json` lives in this repo (commonly the root; i
 ## Steps
 
 1. `npx nx format:write`
-2. Lint — `npx nx affected -t lint --parallel=$cpuCount` (or `npx nx lint $projectName --parallel=$cpuCount`). May start with `--fix`.
+2. Lint — `npx nx affected -t lint --parallel=$cpuCount --fix` (or `npx nx lint $projectName --parallel=$cpuCount --fix`).
 3. Test — `npx nx affected -t test --parallel=$cpuCount` (or `npx nx test $projectName --parallel=$cpuCount`).
 4. Build — `npx nx affected -t build --parallel=$cpuCount` (or `npx nx build $projectName --parallel=$cpuCount`).
 
