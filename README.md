@@ -73,6 +73,7 @@ ln -s "$(pwd)/skills/run-nx-checks" ~/sources/your-project/.claude/skills/
 
 ### run-nx-checks
 
-Runs `nx format`, `lint`, `test`, and `build` against affected libs and automatically applies unambiguous fixes — lint auto-fixes, missing imports, obvious type
-errors — asking before touching anything judgment-laden. Accepts an optional CPU count and
-project name as arguments. See [`skills/run-nx-checks/SKILL.md`](skills/run-nx-checks/SKILL.md).
+Runs [Nx](https://nx.dev/) checks (`format`/`lint`/`test`/`build`) against affected projects
+and automatically applies unambiguous fixes — lint auto-fixes, missing imports, obvious type errors — asking
+before touching anything judgment-laden. Accepts an optional CPU count and project name as arguments. 
+See [`skills/run-nx-checks/SKILL.md`](skills/run-nx-checks/SKILL.md).
