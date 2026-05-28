@@ -34,3 +34,21 @@ ln -s "$(pwd)/rules/self-contained-docs.md"      ~/.claude/rules/
 
 Start a new session and run `/context` to confirm the rules are loaded. Rules apply at the
 user level (all projects); to scope them to one project, symlink into that repo's `.claude/rules/` instead.
+
+## Skills
+
+Collection of skills I use in multiple projects. Each lives in its own directory under [`skills/`](skills)
+with a `SKILL.md` describing the trigger, allowed tools, and steps.
+
+They can be installed via [skills.sh](https://skills.sh/):
+
+```sh
+npx skills add FrancescoBorzi/agent-toolkit
+```
+
+### run-nx-checks
+
+Runs `nx format`, `lint`, `test`, and `build` against affected projects (or a specific one) and
+applies only mechanical, unambiguous fixes — lint auto-fixes, missing imports, obvious type
+errors — asking before touching anything judgment-laden. Accepts an optional CPU count and
+project name as arguments. See [`skills/run-nx-checks/SKILL.md`](skills/run-nx-checks/SKILL.md).
