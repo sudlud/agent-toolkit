@@ -55,8 +55,8 @@ Define a shell variable once per Bash call to keep commands readable. Each step 
 NX_OFF="NX_POWERPACK_CACHE_MODE=no-cache NX_NO_CLOUD=true"
 ```
 
-1. Format — `$NX_OFF npx nx format:write`
-2. Lint — `$NX_OFF npx nx affected -t lint --parallel=$cpuCount --fix` (or `$NX_OFF npx nx lint $projectName --parallel=$cpuCount --fix`).
+1. Lint — `$NX_OFF npx nx affected -t lint --parallel=$cpuCount --fix` (or `$NX_OFF npx nx lint $projectName --parallel=$cpuCount --fix`).
+2. Format — `$NX_OFF npx nx format:write`
 3. Test — `$NX_OFF npx nx affected -t test --parallel=$cpuCount` (or `$NX_OFF npx nx test $projectName --parallel=$cpuCount`).
 4. Build — `$NX_OFF npx nx affected -t build --parallel=$cpuCount` (or `$NX_OFF npx nx build $projectName --parallel=$cpuCount`).
 
