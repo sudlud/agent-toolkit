@@ -6,7 +6,7 @@ allowed-tools: Bash, Read, Edit, Write, Grep, Glob
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.1"
+  version: "1.2"
 ---
 
 # Run Nx Checks
@@ -48,6 +48,8 @@ Always prefix each nx command with **both** remote-cache-off env vars inline. Th
 - `NX_NO_CLOUD=true` — disables Nx Cloud's remote read-through cache.
 
 If the user explicitly passed `--remote-cache`, drop both prefixes.
+
+**Always keep the local cache on.** The env vars above disable only the _remote_ read-through cache; the local Nx cache must stay enabled so unchanged targets are replayed instead of re-run. Do **not** add `--skip-nx-cache` (nor `NX_SKIP_NX_CACHE=true`) to any command — it bypasses the local cache too, making every run slower for no benefit. The only valid reason to pass `--skip-nx-cache` is a specific, stated need to bypass the local cache — e.g. investigating a failure you suspect is caused by a stale cache entry. In that case, scope it to the single command under investigation and say why; never use it as the default.
 
 Define a shell variable once per Bash call to keep commands readable. Each step is a separate Bash invocation, so re-define it each time:
 

@@ -31,6 +31,7 @@ mkdir -p ~/.claude/rules
 ln -s "$(pwd)/rules/git-read-only-by-default.md" ~/.claude/rules/
 ln -s "$(pwd)/rules/no-nonsense-comments.md"     ~/.claude/rules/
 ln -s "$(pwd)/rules/self-contained-docs.md"      ~/.claude/rules/
+ln -s "$(pwd)/rules/plans-directory.md"          ~/.claude/rules/
 ```
 
 Start a new session and run `/context` to confirm the rules are loaded. Rules apply at the
