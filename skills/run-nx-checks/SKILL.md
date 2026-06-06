@@ -57,12 +57,21 @@ Define a shell variable once per Bash call to keep commands readable. Each step 
 NX_OFF="NX_POWERPACK_CACHE_MODE=no-cache NX_NO_CLOUD=true"
 ```
 
-1. Lint — `$NX_OFF npx nx affected -t lint --parallel=$cpuCount --fix` (or `$NX_OFF npx nx lint $projectName --parallel=$cpuCount --fix`).
+1. Lint — `$NX_OFF npx nx affected -t lint --parallel=$cpuCount --fix` (or `$NX_OFF npx nx lint $projectName --fix`).
 2. Format — `$NX_OFF npx nx format:write`
-3. Test — `$NX_OFF npx nx affected -t test --parallel=$cpuCount` (or `$NX_OFF npx nx test $projectName --parallel=$cpuCount`).
+3. Test — `$NX_OFF npx nx affected -t test --parallel=$cpuCount --maxWorkers=1` (or `$NX_OFF npx nx test $projectName`).
 4. Build — `$NX_OFF npx nx affected -t build --parallel=$cpuCount` (or `$NX_OFF npx nx build $projectName --parallel=$cpuCount`).
 
 Apply the fix rule on any failure in steps 2–4.
+
+### `--maxWorkers=1` on the test step
+
+`--parallel` caps concurrent *projects*; each test task still fans out to ~all cores internally, so without this the cores oversubscribe (CPU pegs at 100%). `--maxWorkers=1` pins each task to one worker → `--parallel=$cpuCount` ≈ `$cpuCount` cores. Both Vitest and Jest accept the flag.
+
+- **Test step only.** Forwarding `--maxWorkers` to lint (ESLint) or build (esbuild) fails as an unknown option.
+- **Affected/run-many only, not single-project.** With one project there's no project-level fan-out, so capping to one worker just serializes it — let a single project use all cores.
+
+Same reason, `--parallel` is dropped from single-project **lint** and **test** (one task each — no fan-out). It stays on single-project **build**, because `build` has `dependsOn: ["^build"]`, so building one project fans out across its whole dependency chain.
 
 ## Why the remote cache is off by default
 
