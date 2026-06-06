@@ -78,3 +78,10 @@ Runs [Nx](https://nx.dev/) checks (`format`/`lint`/`test`/`build`) against affec
 and automatically applies unambiguous fixes — lint auto-fixes, missing imports, obvious type errors — asking
 before touching anything judgment-laden. Accepts an optional CPU count and project name as arguments. 
 See [`skills/run-nx-checks/SKILL.md`](skills/run-nx-checks/SKILL.md).
+
+### compact-skill-creator
+
+Helps author new skills and improve existing ones for maximum token economy — saying the same rules and
+intent in the least text — while keeping wording agent-agnostic (and project-agnostic where possible),
+classifying each skill's trigger type to size its description, and using progressive disclosure to split
+out conditional content. See [`skills/compact-skill-creator/SKILL.md`](skills/compact-skill-creator/SKILL.md).
