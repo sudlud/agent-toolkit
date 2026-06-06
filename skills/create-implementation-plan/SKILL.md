@@ -120,6 +120,11 @@ State clearly when done that the plan file is ready, referring to it by its **pr
 execution session** with a clean context that reads **only the plan file**, implements it, then runs
 the project's validation (lint, tests, build).
 
+End by giving the user a concrete, copy-pasteable prompt to kick off that session, quoting the
+plan's project-relative path, e.g.:
+
+> Next step, run this prompt on a new session: "Execute the plan `.claude/plans/123-some-task/123-some-task.PLAN.md`"
+
 If the agent platform supports naming or labelling a session, suggest naming it after the feature —
 the slug from the plan's filename (without the id prefix or extension), e.g.
 `implement-report-approval` — so the implementation session is easy to find later.
