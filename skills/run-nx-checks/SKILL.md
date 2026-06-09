@@ -6,7 +6,7 @@ allowed-tools: Bash, Read, Edit, Write, Grep, Glob
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.2"
+  version: "1.3"
 ---
 
 # Run Nx Checks
@@ -47,6 +47,21 @@ command line of each nx invocation (see Steps below).
   recent work, anything where multiple plausible fixes exist.
 - Keep changes minimal and scoped to the failure. No drive-by refactors.
 - After fixing, re-run the check. Repeat until clean or you need to ask.
+
+## Affected scope — sanity-check before build/test
+
+Affected runs can balloon. Before steps 3–4, check scope with the graph-only `npx nx show projects
+--affected` (fast, no build):
+
+- **Sandbox `.env` false positives.** The sandbox denies reading `**/.env`; `nx affected` hashes
+  changed files, so an unreadable `.env` reads as *changed* and marks its project affected. Repos
+  with `.env`-bearing apps (e.g. `apps/*-api`) thus drag those into every affected run and build
+  them for nothing. Tell-tale: `git status` prints `<path>/.env: Operation not permitted` for
+  exactly those projects. Fix: rerun the nx commands with the sandbox disabled so `.env` reads
+  succeed, or `--exclude` those projects.
+- **Large fan-out.** If the set is large (e.g. a widely-shared lib change rippling across the
+  workspace), report the project count and scope and confirm with the user before building — don't
+  build the world unprompted.
 
 ## Steps
 

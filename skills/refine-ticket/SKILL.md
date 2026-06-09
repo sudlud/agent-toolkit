@@ -56,6 +56,13 @@ relevant code lives, the shape of the data, the existing patterns to reuse — r
 planner builds on them instead of rediscovering. Keep these as anchors for the requirements, not a
 solution design: *what is true today*, not *how to change it*.
 
+## "Already exists" / "reuse X" is a directive
+
+When the ticket says a capability exists or names something to reuse, find what's *behind* it (the
+service method, query, SP it calls) and anchor the requirement on the smallest extension — relax a
+parameter, widen a filter, lift a guard. "Not an exact match" doesn't license a net-new build:
+reuse-vs-build-new is a **blocking** question for the user, never a silent default.
+
 ## Output: the REQUIREMENTS file
 
 Must stand alone for a **fresh session** with no memory of this conversation and no access to the
