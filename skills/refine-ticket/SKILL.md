@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.1"
+  version: "1.2"
 ---
 
 # Refine ticket
@@ -27,6 +27,9 @@ the code here is for *validating* requirements, not for designing the solution.
   it.
 - Anything *not* determinable from ticket + code, ask — never fill the gap with a plausible
   assumption.
+- Local environment state (config files, DB contents, env vars) describes only the machine it's on
+  — never assume it matches the environment where the reported behaviour occurred; ask the user to
+  confirm such values.
 - Treat "this probably works like X" as a question, not a fact. Keep "I confirmed X", "the ticket
   claims X", and "I assume X" distinct; the latter two never become the first without evidence.
 - Before declaring something missing, broaden the search — "not found under the name the ticket
