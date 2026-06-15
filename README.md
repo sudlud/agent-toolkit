@@ -77,17 +77,18 @@ OpenPack package (requires agentwheel ≥ 0.9.0). Run it from where you want it 
 user level, or a project root):
 
 ```sh
-npx agentwheel sync github:FrancescoBorzi/agent-toolkit --adapter claude
+npx agentwheel install github:FrancescoBorzi/agent-toolkit --adapter claude
 ```
 
-Swap `--adapter claude` for `codex`, `copilot`, etc. to target other agents. Add `--dry-run` to
-preview, or `--mode tracking` to follow this repo (`agentwheel update` pulls future changes).
+Swap `--adapter claude` for `codex`, `copilot`, etc. to target other agents. For dry runs,
+tracking updates, named targets, profiles, or more controlled `add` → `plan` → `install` flows,
+see the [agentwheel documentation](https://github.com/NestDevLab/agentwheel).
 
 Only want specific pieces instead of everything? Select them by `<type>/<name>`, for example one
 skill plus one rule:
 
 ```sh
-npx agentwheel sync github:FrancescoBorzi/agent-toolkit --adapter claude \
+npx agentwheel install github:FrancescoBorzi/agent-toolkit --adapter claude \
   --select skills/run-nx-checks,rules/no-nonsense-comments.md
 ```
 
