@@ -5,7 +5,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.1"
+  version: "1.2"
 ---
 
 # Compact skill creator
@@ -86,7 +86,9 @@ loads **only when the agent follows the pointer** — that is the lever.
    defaults from context (sibling `SKILL.md` files, `git config user.name`, repo `LICENSE`), ask the
    user to confirm or override, and start version at `"1.0"`. Improving: preserve existing fields,
    and flag any missing one.
-4. **Draft** (create) or **improve** (existing). Improving cuts redundancy *and* adds or clarifies
+4. **Draft** (create) or **improve** (existing). A first draft already meets the compaction
+   standard — the core-principle reflex applies to new skills as much as to edits; don't ship a
+   loose draft expecting a later pass to tighten it. Improving cuts redundancy *and* adds or clarifies
    where the skill is vague, under-specified, or missing a rule — loop back to intake for more
    questions if gaps surface.
 5. **Self-review** before presenting (terse yes/no checks):
@@ -95,7 +97,7 @@ loads **only when the agent follows the pointer** — that is the lever.
    - Trigger type identified, and the description written to fit it? Then test the description:
      reading only it, would an agent open the skill for the intended task (must be yes) and skip it
      for a similar but unrelated task (must be no)? Reword until both hold.
-   - Duplication/filler gone?
+   - Duplication/filler gone, and every surviving rule in the fewest words — tight phrasing, not just free of redundancy? (Create and improve alike.)
    - Removal audit against the **rendered diff, not memory**: read every removed line — and every
      reordered or merged one, which count as removals — and confirm each drops only duplication or
      filler, never a rule, instruction, edge case, or nuance. After a merge, re-verify the result
