@@ -1,7 +1,6 @@
 ---
 name: refine-ticket
 description: Refine a development ticket into a validated, self-contained REQUIREMENTS document — the "what", verified against the codebase. Invoke manually only.
-disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì

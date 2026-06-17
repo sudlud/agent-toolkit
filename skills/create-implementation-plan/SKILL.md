@@ -1,7 +1,6 @@
 ---
 name: create-implementation-plan
 description: Turn a refined requirements document into a structured implementation PLAN.md a fresh session can execute. Planning only — decides the "how", not the "what". Invoke manually only.
-disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
