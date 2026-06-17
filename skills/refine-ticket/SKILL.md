@@ -4,7 +4,7 @@ description: Refine a development ticket into a validated, self-contained REQUIR
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.3"
+  version: "1.4"
 ---
 
 # Refine ticket
@@ -38,7 +38,8 @@ the code here is for *validating* requirements, not for designing the solution.
 
 ## Grill to resolve every branch
 
-After gathering and code-verifying, run a grilling interview to close every remaining decision:
+After gathering and code-verifying, **grill** the user — interview relentlessly, never guessing
+what they could clarify — to close every remaining decision:
 
 - One question at a time, each with your recommended answer.
 - If a question is answerable from the codebase, answer it by exploring — don't ask.

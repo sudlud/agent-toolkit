@@ -4,7 +4,7 @@ description: Turn a refined requirements document into a structured implementati
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.2"
+  version: "1.3"
 ---
 
 # Create Implementation Plan
@@ -25,7 +25,8 @@ the user.
 ## Steps
 
 Your task is to **produce the implementation plan**. The steps below build toward it; grilling the
-user is woven through the design — not a separate phase that runs before planning starts.
+user — interviewing relentlessly to resolve anything the code can't settle — is woven through the
+design, not a separate phase that runs before planning starts.
 
 1. **Read the requirements document** the user references (e.g. a `*.REQUIREMENTS.md`). If the path
    is ambiguous, ask.
