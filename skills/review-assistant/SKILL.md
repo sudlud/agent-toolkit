@@ -1,6 +1,6 @@
 ---
-name: review-branch
-description: Review a pull request or branch locally: diff a source branch against its target (auto-detected or from a PR link) and return concise, human-voice review comments with file:line locations. Read-only, never posts. Use when asked to review a PR, review a branch, or check changes before merging. Invoke manually only.
+name: review-assistant
+description: Assist a human reviewing a pull request or branch locally: diff a source branch against its target (auto-detected or from a PR link) and return concise, human-voice review comments with file:line locations. Read-only, never posts. Use when asked to review a PR, review a branch, or check changes before merging. Invoke manually only.
 disable-model-invocation: true
 license: MIT
 metadata:
@@ -8,7 +8,7 @@ metadata:
   version: "0.2"
 ---
 
-# Review branch
+# Review assistant
 
 Assist a human's local code-review pass: read the diff, understand the intent, surface the real
 issues. You suggest candidate comments; the human decides what to post.
