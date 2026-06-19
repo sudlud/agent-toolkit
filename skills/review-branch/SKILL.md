@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "0.1"
+  version: "0.2"
 ---
 
 # Review branch
@@ -78,7 +78,8 @@ The core rule. A comment may exist only when it points to concrete evidence of o
 If you cannot name the evidence — the exact bug or the exact rule — do not comment. Hedge
 phrases that signal a guess with no evidence ("there might be", "this could potentially",
 "consider whether") are a smell and a classic AI tell: with real evidence, state it plainly;
-without it, stay silent.
+without it, stay silent. (This bans raising findings you can't back — 
+not phrasing a well-grounded **Suggested comment** to the author as a polite question; see Output.)
 
 One exception: a genuine clarifying question to the author — rare, only when the diff is truly
 ambiguous about intent or correctness and the answer changes whether it is right. Never a routine
@@ -102,19 +103,36 @@ Local text only; write no file unless the user later asks to save it.
 
 - Lead with one short sentence recapping what the PR does, to show the change was understood.
 - Then the comment list, or a one-line `Looks good, no comments.`
-- Each item:
+- Each item: a `###` heading holding the clickable `path:line`, the explanation beneath it, the
+  optional suggested comment, then a `---` rule before the next. For example:
 
   ```
-  `path/to/file.ext:42` — brief explanation in a sentence or two.
-    Suggested comment: short, friendly, human-voice line to paste.
+  ### `path/to/file.ext:42`
+
+  Brief explanation in a sentence or two.
+
+  Suggested comment: short line to paste, in a real reviewer's voice.
+
+  ---
   ```
 
   The explanation is your note to the user and can be direct. Add **Suggested comment** only when it
   adds something beyond the explanation (long, nuanced, or needs softer phrasing); if it would just
-  restate the explanation, give one or the other, never both near-identical.
+  restate the explanation, give one or the other, never both near-identical. Word the suggested
+  comment the way a real reviewer talks: short, casual, warm, collegial — a terse line or question
+  that points at the issue and trusts the author to dig in, not a recap of your reasoning (that is
+  the explanation's job). Often a question even when you are sure the code is wrong, naming the exact
+  symbol and pointing at what you saw ("where is `FOO` used?", "where is `FOO` written? I only see it
+  read here", "this feels off — shouldn't it be `X`?"). Even a plain factual nit gets this warmth — a
+  gentle question with a soft hypothesis ("the comment says localStorage but the code uses
+  sessionStorage — maybe we forgot to update it?"), in collaborative "we" voice, never a curt bare
+  statement. This brevity and softness is tone,
+  not hedging — it does not lower the evidence bar from *Grounded, not speculative*: stay grounded
+  in *what* to raise, stay human and brief in *how* you word it to the author.
 - **Order mirrors the diff** so the user can read the PR in one window and copy-paste straight down
   in another: files in the diff's own order, ascending line number within a file, grouped by file
-  when a file has several comments. No severity labels, no categories. Flat and scannable.
+  when a file has several comments. This order is absolute: never reorder by a finding's perceived
+  importance or severity. No severity labels, no categories. Flat and scannable.
 
 ## Boundaries
 
