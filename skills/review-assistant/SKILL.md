@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "0.2"
+  version: "0.4"
 ---
 
 # Review assistant
@@ -29,6 +29,12 @@ Accept input flexibly; a PR link is optional:
 **Diff base:** always three-dot merge-base, `git diff target...source`, so it matches exactly what
 the platform shows as the PR with no noise from commits that landed on target after the fork. Fall
 back to two-dot only when there is no common ancestor. No checkout is needed to produce the diff.
+
+**Branch freshness:** before diffing, compare the local source branch against its remote-tracking
+ref read-only and without fetching (e.g. `git log <branch>..origin/<branch>`). If the remote is
+ahead or the two have diverged, the local copy may be stale — say so and ask whether to update
+before reviewing; never fetch or update it yourself (see Boundaries → Never auto-fetch). A no-fetch
+check only reflects the last fetch, so the user may want to fetch first to be sure.
 
 **Target auto-detection** (when not supplied and not from a PR link), in order:
 1. `git symbolic-ref refs/remotes/origin/HEAD` — the remote default branch.
@@ -117,18 +123,15 @@ Local text only; write no file unless the user later asks to save it.
   ```
 
   The explanation is your note to the user and can be direct. Add **Suggested comment** only when it
-  adds something beyond the explanation (long, nuanced, or needs softer phrasing); if it would just
-  restate the explanation, give one or the other, never both near-identical. Word the suggested
-  comment the way a real reviewer talks: short, casual, warm, collegial — a terse line or question
-  that points at the issue and trusts the author to dig in, not a recap of your reasoning (that is
-  the explanation's job). Often a question even when you are sure the code is wrong, naming the exact
-  symbol and pointing at what you saw ("where is `FOO` used?", "where is `FOO` written? I only see it
-  read here", "this feels off — shouldn't it be `X`?"). Even a plain factual nit gets this warmth — a
-  gentle question with a soft hypothesis ("the comment says localStorage but the code uses
-  sessionStorage — maybe we forgot to update it?"), in collaborative "we" voice, never a curt bare
-  statement. This brevity and softness is tone,
-  not hedging — it does not lower the evidence bar from *Grounded, not speculative*: stay grounded
-  in *what* to raise, stay human and brief in *how* you word it to the author.
+  adds something beyond the explanation (nuance, or softer phrasing); if it would just restate the
+  explanation, give one or the other, never both near-identical. A suggested comment is the quick line
+  a real reviewer drops: very short, casual, friendly. Strip the rationale and any trailing hypothesis
+  about the cause; the explanation already carries the why, so keep only the ask. Often a question
+  even when you are sure the code is wrong, naming the exact symbol (e.g. "where is `FOO` used?").
+  Even a plain nit stays warm and in collaborative "we" voice, never a curt bare statement. Never use
+  dashes (em or en); write the way people actually type. This brevity and softness is tone, not
+  hedging: it never lowers the evidence bar from *Grounded, not speculative*. Stay grounded in *what*
+  to raise, human and brief in *how* you word it.
 - **Order mirrors the diff** so the user can read the PR in one window and copy-paste straight down
   in another: files in the diff's own order, ascending line number within a file, grouped by file
   when a file has several comments. This order is absolute: never reorder by a finding's perceived

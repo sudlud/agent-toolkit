@@ -4,7 +4,7 @@ description: Refine a development ticket into a validated, self-contained REQUIR
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.4"
+  version: "1.5"
 ---
 
 # Refine ticket
@@ -65,6 +65,18 @@ When the ticket says a capability exists or names something to reuse, find what'
 service method, query, SP it calls) and anchor the requirement on the smallest extension — relax a
 parameter, widen a filter, lift a guard. "Not an exact match" doesn't license a net-new build:
 reuse-vs-build-new is a **blocking** question for the user, never a silent default.
+
+## Reconcile against the design when one is referenced
+
+When a ticket points at a design (mockup, screenshot, prototype, design-tool link), that design is
+part of the spec. Visual decisions made without seeing it lock in wrong defaults.
+
+- If you cannot actually see the referenced design, ask for it before proceeding. A link you can't
+  render is not a design you've read. Prefer a copy already saved with the ticket over re-fetching.
+- Once you can see it, treat visual specifics as contract-level: currency, date, and number
+  formatting, empty and error states, label wording, spacing, alignment, iconography. The default
+  for "is this in the design?" is match the design, not do the minimum.
+- Any visual choice you'd otherwise make blind is an Open question, never silently defaulted.
 
 ## Output: the REQUIREMENTS file
 

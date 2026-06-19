@@ -5,7 +5,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.2"
+  version: "1.3"
 ---
 
 # Compact skill creator
@@ -24,6 +24,10 @@ edge case, and intent. Two directions, equally binding:
 - **Never** drop text whose removal loses information or instruction, just to be shorter.
 
 Recurring reflex: *"Can this exact rule be said in fewer words?"* — if yes, do it.
+
+Compaction counts words and information density, not whitespace. Blank lines between distinct chunks
+cost effectively nothing and aid the human reader, so keep them where they help; never collapse a
+long passage into one dense block to look shorter.
 
 ## Trigger taxonomy — classify first
 
