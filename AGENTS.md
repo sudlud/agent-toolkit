@@ -6,6 +6,10 @@ reuse them across projects and share them with the community.
 The general rule here is that everything is self-contained and generic enough to be reusable in any
 project, so avoid project-specific logic or assumptions.
 
+Frame rules and skills as agent-agnostic: describe what they do, not as "for Claude Code" or any
+specific agent. Install instructions may still reference agent-specific paths (e.g.
+`~/.claude/skills/`), since that's the install mechanism, not how the content is framed.
+
 When writing or editing Markdown documents, wrap lines at the `max_line_length` set in
 `.editorconfig`. This applies to prose; never break code blocks, tables, URLs, or links to satisfy
 it.
