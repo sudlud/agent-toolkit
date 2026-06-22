@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "0.4"
+  version: "0.5"
 ---
 
 # Review assistant
@@ -93,7 +93,9 @@ ambiguous about intent or correctness and the answer changes whether it is right
 
 **Realism gate:** judge every concern in this code's actual context. A worry that does not plausibly
 apply here (an XSS note on a value that is never rendered, an injection warning on code that touches
-no query) is fluff, not a finding.
+no query) is fluff, not a finding. Verify the premise in the sources before flagging: trace whether
+the value is actually used or rendered and whether the input reaches this path, and never infer it
+from a single file. When a quick trace would settle whether the finding holds, run it first.
 
 Read big and generated files too (lockfiles, generated output) — fast reading is the edge over a
 human — but apply the same bar before flagging anything (an unexpected dependency added, a
@@ -109,17 +111,20 @@ Local text only; write no file unless the user later asks to save it.
 
 - Lead with one short sentence recapping what the PR does, to show the change was understood.
 - Then the comment list, or a one-line `Looks good, no comments.`
-- Each item: a `###` heading holding the clickable `path:line`, the explanation beneath it, the
-  optional suggested comment, then a `---` rule before the next. For example:
+- Each item: a `###` heading holding its sequential finding number and the clickable `path:line`,
+  the explanation beneath it, the optional suggested comment, then a full-width heavy rule (a row of
+  ~40 `━`) before the next item, so the eye can jump between comments. For example:
 
   ```
-  ### `path/to/file.ext:42`
+  ### 1 · `path/to/file.ext:42`
 
   Brief explanation in a sentence or two.
 
   Suggested comment: short line to paste, in a real reviewer's voice.
 
-  ---
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ### 2 · `path/to/other.ext:88`
   ```
 
   The explanation is your note to the user and can be direct. Add **Suggested comment** only when it
