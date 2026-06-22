@@ -135,3 +135,15 @@ You can also use the [skills.sh](https://skills.sh/) installer to install the sk
 ```sh
 npx skills add FrancescoBorzi/agent-toolkit
 ```
+
+## Install skills via Claude Code plugin marketplace
+
+Add the marketplace, then install the toolkit:
+
+```
+/plugin marketplace add FrancescoBorzi/agent-toolkit
+/plugin install agent-toolkit
+```
+
+All skills install together, namespaced as `/agent-toolkit:<skill>` (for example
+`/agent-toolkit:memory-doctor`).
