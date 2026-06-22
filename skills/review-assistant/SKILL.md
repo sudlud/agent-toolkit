@@ -112,10 +112,13 @@ Local text only; write no file unless the user later asks to save it.
 - Lead with one short sentence recapping what the PR does, to show the change was understood.
 - Then the comment list, or a one-line `Looks good, no comments.`
 - Each item: a `###` heading holding its sequential finding number and the clickable `path:line`,
-  the explanation beneath it, the optional suggested comment, then a full-width heavy rule (a row of
-  ~40 `━`) before the next item, so the eye can jump between comments. For example:
+  the explanation beneath it, then the optional suggested comment. Put a full-width heavy rule (a row
+  of ~40 `━`) above each finding and one more after the last, so the list is bracketed top and bottom
+  and the eye can jump between comments. For example:
 
   ```
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
   ### 1 · `path/to/file.ext:42`
 
   Brief explanation in a sentence or two.
@@ -125,6 +128,10 @@ Local text only; write no file unless the user later asks to save it.
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   ### 2 · `path/to/other.ext:88`
+
+  Brief explanation, suggested comment, …
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   ```
 
   The explanation is your note to the user and can be direct. Add **Suggested comment** only when it
