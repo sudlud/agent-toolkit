@@ -5,7 +5,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.4"
+  version: "1.5"
 ---
 
 # Self-improve
@@ -31,8 +31,9 @@ coding-standards or convention doc, a rules file — anything that guides future
   Never edit a skill or doc without the user's explicit go-ahead on the concrete change — present it
   as a diff and apply only on approval, whether the user invoked the skill or the agent
   self-triggered.
-- **Editing a `SKILL.md` → always invoke [compact-skill-creator](../compact-skill-creator/SKILL.md)**
-  to keep skills compact and ergonomic; never edit one directly.
+- **Editing any skill/doc → always invoke [compact-skill-creator](../compact-skill-creator/SKILL.md)**
+  to keep it compact and ergonomic; never edit one directly, unless compact-skill-creator isn't
+  available.
 
 ## Recognize a persistable correction (self-trigger)
 
@@ -58,5 +59,5 @@ Whenever unsure whether it generalizes, ask the user.
    If the lesson **reverses** an existing rule, surface that explicitly — show the old rule, the
    feedback, and the proposed replacement — and never overwrite it silently; the contradiction may
    mean the feedback is context-specific, not a true reversal.
-4. **Apply the edit.** Skill-file target → use the compact-skill-creator route (see Hard rules).
-   Non-skill doc → present the diff yourself. Either way, apply only on approval.
+4. **Apply the edit.** Use the compact-skill-creator route (see Hard rules) for any target; present
+   the change as a diff and apply only on approval.
