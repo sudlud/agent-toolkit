@@ -109,4 +109,5 @@ loads **only when the agent follows the pointer** — that is the lever.
 6. **Present & confirm.** Show the proposed change as a diff with a word/token delta **measured from
    the files** (e.g. `wc -w` before vs. after — never estimated). In improve mode the same prompt
    **must** also ask whether to bump the version — **never apply a skill edit without putting the
-   version-bump decision to the user.** Apply only on approval.
+   version-bump decision to the user.** If the version was already raised since the last commit,
+   fold the change into that pending bump rather than bump again. Apply only on approval.

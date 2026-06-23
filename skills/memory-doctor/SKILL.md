@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.1"
+  version: "1.2"
 ---
 
 # Memory doctor
@@ -42,18 +42,25 @@ flat file with no index, treat each section as a block.
 
 1. **Scan (read-only).** Read every block. To judge staleness you may read or grep project files,
    git, and governing docs — but make **no** mutation in this phase.
-2. **Triage table.** Present all blocks in one table so the user sees the whole memory at once:
-   `block | content (verbatim excerpt or summary, ≤10 lines) | verdict | justification | evidence
-   (duplicate/garbage) | scope/form/path (relocate)`. Truncate long blocks, but show enough that the
-   user can judge each without opening the file.
-3. **Execute, one question per block, in strict index order (1 → last).** Walk blocks by their table
+2. **Triage table.** Present all blocks as ONE narrow overview table that renders as a table, not a
+   wrapped list: `# | block | content (≤1 line) | verdict | why + target`. Every cell is a summary:
+   the `content` cell one line, the `why + target` cell folding justification, duplicate/garbage
+   evidence, and relocate scope/form/path. Full detail for a block waits for its question (step 3).
+   The table numbers each block (1…N); refer to a block by that number, in order, and never re-list
+   block numbers out of sequence in surrounding prose.
+3. **Decide, one question per block, in strict index order (1 → last).** Walk blocks by their table
    index — **never group, batch, or reorder blocks**, even when adjacent ones share a verdict; ask
-   about exactly one block per prompt. For each, present its recommended verdict as the default, then
-   the **same fixed menu every time** regardless of that verdict — relocate/merge, archive (delete),
+   about exactly one block per prompt. For each, lead with the detail the table only summarized — a
+   verbatim content excerpt plus the full justification — so the user can judge, then present its
+   recommended verdict as the default, then the **same fixed menu every time** regardless of that
+   verdict — relocate/merge, archive (delete),
    keep, or other (the user types a custom action). Never drop an option because it seems not to
-   apply; the user must never have to type a standard option by hand. Apply only the user's chosen
-   action before moving to the next block; never skip a block or act on one without its own explicit
-   confirmation.
+   apply; the user must never have to type a standard option by hand. Record each confirmed choice
+   and move straight to the next block — **act on nothing yet**; never skip a block or record a
+   choice without its own explicit confirmation.
+4. **Execute, once every block is decided.** Apply the recorded actions in index order, honoring the
+   Safety rules below (relocate-before-delete, honest index). Doing all the work in one pass —
+   never interleaved with the questions — keeps the decision phase a fast, uninterrupted Q&A.
 
 ## Verdicts
 
