@@ -9,6 +9,9 @@
       "items": {
         "self-improve-on-correction.md": {
           "requires": ["skills/self-improve"]
+        },
+        "compact-governing-docs.md": {
+          "requires": ["skills/compact-skill-creator"]
         }
       }
     },

@@ -1,7 +1,6 @@
 # agent-toolkit
 
-My own toolkit for AI Agentic Coding: a collection of reusable, project-agnostic tools that I use
-across multiple projects.
+A collection of project-agnostic, generic agentic tools for common engineering tasks such as ticket refinement, planning, code reviews, agent memory hygiene, skill authoring, and more.
 
 - **Rules**: generic behavioral rules I apply at user level across all projects. Each file in
   [`rules/`](rules) is a single, self-contained rule.
@@ -114,6 +113,7 @@ flowchart TD
   self_rule["self-improve-on-correction rule"] --> self["self-improve"]
   self --> compact["compact-skill-creator"]
   memory_doctor["memory-doctor"] --> self
+  compact_gov["compact-governing-docs rule"] --> compact
 
   plans_rule["plans-directory rule"] -. informs .-> fetch_ticket
   plans_rule -. informs .-> fetch_pr
