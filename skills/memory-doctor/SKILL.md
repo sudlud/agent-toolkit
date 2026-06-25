@@ -91,9 +91,9 @@ If using Claude Code: user-level config lives in `~/.claude/skills` and `~/.clau
 project-level in the repo's `.claude/skills` and `.claude/rules`.
 
 **Do the relocation through [self-improve](../self-improve/SKILL.md)** — it finds the home, drafts
-the least-text edit, and applies it (routing skill edits through compact-skill-creator). This skill
-owns discovery, enumeration, classification, and the archive/delete path; self-improve owns writing
-the content into its home.
+the least-text edit, and applies it (routing the write through the matching compaction skill). This
+skill owns discovery, enumeration, classification, and the archive/delete path; self-improve owns
+writing the content into its home.
 
 ## Safety
 

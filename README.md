@@ -93,10 +93,12 @@ npx agentwheel install github:FrancescoBorzi/agent-toolkit --adapter claude \
 
 `--select` is repeatable or comma-separated.
 
-The manifest also marks hard internal dependencies. For example, selecting `skills/self-improve`
-also installs `skills/compact-skill-creator`; selecting `skills/memory-doctor` also installs
-`skills/self-improve`; and selecting `rules/self-improve-on-correction.md` also installs
-`skills/self-improve`.
+The manifest also marks hard internal dependencies. For example, selecting
+`skills/compact-skill-creator` also installs `skills/compact-docs-writer`; selecting
+`skills/self-improve` also installs `skills/compact-skill-creator` and
+`skills/compact-docs-writer`; selecting `skills/memory-doctor` also installs
+`skills/self-improve`; and selecting `rules/self-improve-on-correction.md` or
+`rules/compact-governing-docs.md` also installs the skills they require.
 
 ## Artifact relationships
 
@@ -112,8 +114,11 @@ flowchart TD
 
   self_rule["self-improve-on-correction rule"] --> self["self-improve"]
   self --> compact["compact-skill-creator"]
+  self --> compact_docs["compact-docs-writer"]
+  compact --> compact_docs
   memory_doctor["memory-doctor"] --> self
   compact_gov["compact-governing-docs rule"] --> compact
+  compact_gov --> compact_docs
 
   plans_rule["plans-directory rule"] -. informs .-> fetch_ticket
   plans_rule -. informs .-> fetch_pr

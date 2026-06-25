@@ -1,11 +1,11 @@
 ---
 name: compact-skill-creator
 description: Author or refine a skill for maximum token economy without losing intent. Use when creating a new skill or improving an existing `SKILL.md`.
-allowed-tools: Read, Write, Edit, Glob, Grep
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.4"
+  version: "1.5"
 ---
 
 # Compact skill creator
@@ -15,19 +15,16 @@ Author a new skill, or improve an existing one, so it carries **all** its rules 
 skill's most expensive text — while the body loads only when the skill triggers. Both stay lean. Be
 interactive: gather what you need, draft, then apply only on approval.
 
-## Core principle
+## Compaction — always via compact-docs-writer
 
-Write each piece of information with the least text that still preserves every rule, constraint,
-edge case, and intent. Two directions, equally binding:
-
-- Cut duplication, filler, and anything restatable more briefly.
-- **Never** drop text whose removal loses information or instruction, just to be shorter.
-
-Recurring reflex: *"Can this exact rule be said in fewer words?"* — if yes, do it.
-
-Compaction counts words and information density, not whitespace. Blank lines between distinct chunks
-cost effectively nothing and aid the human reader, so keep them where they help; never collapse a
-long passage into one dense block to look shorter.
+The compaction rules — the least-text principle, the removal-audit verification, and the
+present-and-confirm with a measured word delta — live in
+[compact-docs-writer](../compact-docs-writer/SKILL.md), the single source of truth; this skill never
+restates or re-derives them. From the moment you draft (step 4) through self-review (step 5) and
+present (step 6), **always** invoke compact-docs-writer and follow its workflow on the skill text —
+reading it, applying its principles by hand, or naming it after a direct edit does not count. This
+skill adds only the skill-specific layer: trigger taxonomy, agnosticism, progressive disclosure,
+metadata, and the version-bump decision.
 
 ## Trigger taxonomy — classify first
 
@@ -90,25 +87,18 @@ loads **only when the agent follows the pointer** — that is the lever.
    defaults from context (sibling `SKILL.md` files, `git config user.name`, repo `LICENSE`), ask the
    user to confirm or override, and start version at `"1.0"`. Improving: preserve existing fields,
    and flag any missing one.
-4. **Draft** (create) or **improve** (existing). A first draft already meets the compaction
-   standard — the core-principle reflex applies to new skills as much as to edits; don't ship a
-   loose draft expecting a later pass to tighten it. Improving cuts redundancy *and* adds or clarifies
-   where the skill is vague, under-specified, or missing a rule — loop back to intake for more
-   questions if gaps surface.
-5. **Self-review** before presenting (terse yes/no checks):
-   - Every original rule/intent still present?
+4. **Draft** (create) or **improve** (existing): get the skill's content right — the rules it
+   encodes, plus what improving adds (clarify where it's vague, under-specified, or missing a rule;
+   loop back to intake if gaps surface) — compacting it through compact-docs-writer as you write,
+   not in a later pass.
+5. **Self-review** before presenting — terse yes/no, skill-specific (compact-docs-writer runs the
+   compaction and removal-audit checks):
    - Wording agent-agnostic? Project coupling contained?
    - Trigger type identified, and the description written to fit it? Then test the description:
      reading only it, would an agent open the skill for the intended task (must be yes) and skip it
      for a similar but unrelated task (must be no)? Reword until both hold.
-   - Duplication/filler gone, and every surviving rule in the fewest words — tight phrasing, not just free of redundancy? (Create and improve alike.)
-   - Removal audit against the **rendered diff, not memory**: read every removed line — and every
-     reordered or merged one, which count as removals — and confirm each drops only duplication or
-     filler, never a rule, instruction, edge case, or nuance. After a merge, re-verify the result
-     still carries every item from both sources.
-6. **Present & confirm.** Show the proposed change as a diff with a word/token delta **measured from
-   the files** (e.g. `wc -w` before vs. after — never estimated). In improve mode the same prompt
-   **must** also ask whether to bump the version — **never apply a skill edit without putting the
-   version-bump decision to the user.** If the version was already raised since the last commit,
-   fold the change into that pending bump rather than bump again. Apply only on approval. Label the
-   diff as not yet applied and awaiting approval, and after applying say so plainly.
+6. **Present & confirm** through compact-docs-writer (diff + word delta measured from the files,
+   applied only on approval). In improve mode the same prompt **must** also ask whether to bump the
+   version — **never apply a skill edit without putting the version-bump decision to the user.** If
+   the version was already raised since the last commit, fold the change into that pending bump
+   rather than bump again.

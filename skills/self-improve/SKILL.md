@@ -5,7 +5,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.7"
+  version: "1.8"
 ---
 
 # Self-improve
@@ -32,9 +32,12 @@ coding-standards or convention doc, a rules file — anything that guides future
   as a diff and apply only on approval, whether the user invoked the skill or the agent
   self-triggered. State plainly whether a change is not yet applied (awaiting approval) or already
   applied (and where), so the user never has to ask.
-- **Editing any skill/doc → route it THROUGH [compact-skill-creator](../compact-skill-creator/SKILL.md)**
-  (unless unavailable) to keep it compact and ergonomic: actually invoke that skill and follow its
-  workflow *before* drafting or applying. Reading it, applying its principles by hand, or naming it
+- **Editing any skill/doc → always route the write through one of two skills to keep it compact;
+  never edit it directly.** A `SKILL.md` goes through
+  [compact-skill-creator](../compact-skill-creator/SKILL.md); any other doc (rule,
+  `AGENTS.md`/`CLAUDE.md`, convention doc) goes through
+  [compact-docs-writer](../compact-docs-writer/SKILL.md). Actually invoke the skill and follow its
+  workflow *before* drafting or applying; reading it, applying its principles by hand, or naming it
   after a direct edit does not count.
 
 ## Recognize a persistable correction (self-trigger)
@@ -61,5 +64,5 @@ Whenever unsure whether it generalizes, ask the user.
    If the lesson **reverses** an existing rule, surface that explicitly — show the old rule, the
    feedback, and the proposed replacement — and never overwrite it silently; the contradiction may
    mean the feedback is context-specific, not a true reversal.
-4. **Apply the edit.** Use the compact-skill-creator route (see Hard rules) for any target; present
-   the change as a diff and apply only on approval.
+4. **Apply the edit.** Route the write per the Hard rules — `SKILL.md` → compact-skill-creator, any
+   other doc → compact-docs-writer — presenting a diff and applying only on approval.
