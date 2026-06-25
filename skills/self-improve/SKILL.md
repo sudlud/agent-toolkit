@@ -5,7 +5,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.6"
+  version: "1.7"
 ---
 
 # Self-improve
@@ -32,9 +32,10 @@ coding-standards or convention doc, a rules file — anything that guides future
   as a diff and apply only on approval, whether the user invoked the skill or the agent
   self-triggered. State plainly whether a change is not yet applied (awaiting approval) or already
   applied (and where), so the user never has to ask.
-- **Editing any skill/doc → always invoke [compact-skill-creator](../compact-skill-creator/SKILL.md)**
-  to keep it compact and ergonomic; never edit one directly, unless compact-skill-creator isn't
-  available.
+- **Editing any skill/doc → route it THROUGH [compact-skill-creator](../compact-skill-creator/SKILL.md)**
+  (unless unavailable) to keep it compact and ergonomic: actually invoke that skill and follow its
+  workflow *before* drafting or applying. Reading it, applying its principles by hand, or naming it
+  after a direct edit does not count.
 
 ## Recognize a persistable correction (self-trigger)
 
