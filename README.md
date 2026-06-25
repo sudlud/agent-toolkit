@@ -1,6 +1,7 @@
 # agent-toolkit
 
-A collection of project-agnostic, generic agentic tools for common engineering tasks such as ticket refinement, planning, code reviews, agent memory hygiene, skill authoring, and more.
+A collection of project-agnostic, generic agentic tools for common engineering tasks such as
+ticket refinement, planning, code reviews, agent memory hygiene, skill authoring, and more.
 
 - **Rules**: generic behavioral rules I apply at user level across all projects. Each file in
   [`rules/`](rules) is a single, self-contained rule.

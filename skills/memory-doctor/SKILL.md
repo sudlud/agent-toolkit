@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.2"
+  version: "1.3"
 ---
 
 # Memory doctor
@@ -21,9 +21,9 @@ user — not the memory store — decides what reaches the context window.
 
 **The skill guesses and recommends; the user decides.** Every verdict, scope, form, and target is a
 *proposal* the user confirms or flips. When unsure, ask. Nothing is moved, deleted, or written
-without explicit per-item approval. For every block the user gets the whole fixed menu — relocate/merge,
-archive (delete), keep, or a custom action they type — never just the recommended verdict, never a
-pruned subset.
+without explicit per-item approval. For every block the user gets the whole fixed menu —
+relocate/merge, archive (delete), keep, or a custom action they type — never just the recommended
+verdict, never a pruned subset.
 
 ## Locate the memory
 

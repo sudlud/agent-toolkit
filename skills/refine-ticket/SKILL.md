@@ -4,7 +4,7 @@ description: Refine a development ticket into a validated, self-contained REQUIR
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.5"
+  version: "1.6"
 ---
 
 # Refine ticket
@@ -96,11 +96,13 @@ Location:
 
 Five parts (Overrides and Open questions may be empty — don't pad):
 
-1. **Context** — 1–3 sentences: the feature, what's in scope, what's out.
+1. **Context** — 1–3 sentences: the feature, what's in scope, what's out. When the work is only
+   a slice of a larger feature, link the big-picture reference (parent story, final-goal/context
+   note, design) so the planner sees how it fits; a self-contained task needs none.
 2. **Requirements** — deduplicated functional + technical list. Tag each item with its ticket source
-   (e.g. `(Description)`, `(Technical Detail)`, `(AC)`). Group by area when it aids reading. Cite the
-   concrete file path / identifier inline wherever a requirement touches code; cite a reused pattern
-   as `path:line-range`.
+   (e.g. `(Description)`, `(Technical Detail)`, `(AC)`). Group by area when it aids reading. Cite
+   the concrete file path / identifier inline wherever a requirement touches code; cite a reused
+   pattern as `path:line-range`.
 3. **Overrides** — where the ticket says one thing and the requirement says another (ticket is
    stale, wrong, or self-contradictory). Each entry: what the ticket says, what the code/AC shows,
    the resulting requirement.

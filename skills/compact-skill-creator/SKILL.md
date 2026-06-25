@@ -5,7 +5,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.5"
+  version: "1.6"
 ---
 
 # Compact skill creator
@@ -42,6 +42,10 @@ How a skill is triggered decides how its `description` is written. Classify into
 
 Governing rule: **description tokens are justified only by trigger precision, never by summary.**
 Compress *within* a type — but never starve a Mandatory trigger to save a few tokens.
+
+Placement corollary: the body loads only after the skill triggers, when the choice is already
+made — so keep when-to-use and routing cues in the description (read *before* the choice), never
+in the body, where they steer nothing.
 
 ## Agnosticism
 
