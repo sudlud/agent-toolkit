@@ -5,7 +5,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.6"
+  version: "1.7"
 ---
 
 # Compact skill creator
@@ -61,6 +61,11 @@ in the body, where they steer nothing.
   **preserve that**; new or edited content must stay generic, never hardcode a lone vendor as the
   sole path. Otherwise it's a nice-to-have: prefer generic wording, and when unsure whether to
   generalize or couple, ask the user.
+- **Sibling-decoupled: track dependencies.** A skill may be installed with only its declared hard
+  dependencies, not the whole toolkit, so a link to a sibling that isn't a dependency can dangle.
+  Reference another skill only when it's a declared dependency or the link earns its keep
+  operationally (e.g. an actionable next-step handoff); never add orientation prose that merely
+  situates the skill among its siblings.
 
 ## Progressive disclosure — when to split
 
@@ -97,10 +102,12 @@ loads **only when the agent follows the pointer** — that is the lever.
    not in a later pass.
 5. **Self-review** before presenting — terse yes/no, skill-specific (compact-docs-writer runs the
    compaction and removal-audit checks):
-   - Wording agent-agnostic? Project coupling contained?
-   - Trigger type identified, and the description written to fit it? Then test the description:
-     reading only it, would an agent open the skill for the intended task (must be yes) and skip it
-     for a similar but unrelated task (must be no)? Reword until both hold.
+   - Wording agent-agnostic? Project coupling contained? Cross-references limited to declared
+     dependencies or a real operational benefit?
+   - Trigger type identified, and the description written to fit it? Test it three ways: reading
+     only the description, would an agent open the skill for the intended task (yes) and skip a
+     similar but unrelated task (no), and does it match what the skill now does (no stale claim the
+     body contradicts)? Reword until all hold.
 6. **Present & confirm** through compact-docs-writer (diff + word delta measured from the files,
    applied only on approval). In improve mode the same prompt **must** also ask whether to bump the
    version — **never apply a skill edit without putting the version-bump decision to the user.** If

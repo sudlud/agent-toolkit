@@ -1,14 +1,14 @@
 ---
-name: review-assistant
+name: review-code-assistant
 description: Assist a human reviewing a pull request or branch locally: diff a source branch against its target (auto-detected or from a PR link) and return concise, human-voice review comments with file:line locations. Read-only, never posts. Use when asked to review a PR, review a branch, or check changes before merging. Invoke manually only.
 disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "0.7"
+  version: "0.8"
 ---
 
-# Review assistant
+# Review code assistant
 
 Assist a human's local code-review pass: read the diff, understand the intent, surface the real
 issues. You suggest candidate comments; the human decides what to post.

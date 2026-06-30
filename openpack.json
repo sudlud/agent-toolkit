@@ -27,6 +27,9 @@
         },
         "memory-doctor": {
           "requires": ["skills/self-improve"]
+        },
+        "review-ticket": {
+          "requires": ["skills/fetch-ticket"]
         }
       }
     }
