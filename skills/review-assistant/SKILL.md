@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "0.6"
+  version: "0.7"
 ---
 
 # Review assistant
@@ -30,11 +30,10 @@ Accept input flexibly; a PR link is optional:
 the platform shows as the PR with no noise from commits that landed on target after the fork. Fall
 back to two-dot only when there is no common ancestor. No checkout is needed to produce the diff.
 
-**Branch freshness:** before diffing, compare the local source branch against its remote-tracking
-ref read-only and without fetching (e.g. `git log <branch>..origin/<branch>`). If the remote is
-ahead or the two have diverged, the local copy may be stale — say so and ask whether to update
-before reviewing; never fetch or update it yourself (see Boundaries → Never auto-fetch). A no-fetch
-check only reflects the last fetch, so the user may want to fetch first to be sure.
+**Branch freshness:** a review must run against the latest pushed version, so always update the
+branch under review from origin before diffing (`git fetch`, or `git pull` if it is checked out),
+then diff against the up-to-date ref — never a stale last-fetched snapshot. If the update fails
+(e.g. no access to a fork remote), say so and ask how to proceed rather than review stale refs.
 
 **Target auto-detection** (when not supplied and not from a PR link), in order:
 1. `git symbolic-ref refs/remotes/origin/HEAD` — the remote default branch.
@@ -157,10 +156,11 @@ Local text only; write no file unless the user later asks to save it.
 
 ## Boundaries
 
-- **Read-only.** Only read-only git (`diff`, `log`, `show`, `merge-base`, `branch --list`,
-  `symbolic-ref`) and read-only platform fetches. Never check out branches, modify the working tree,
-  post/reply/resolve/vote on the PR, or write files (unless the user explicitly asks to save the
-  output).
-- **Never auto-fetch.** If a required branch is not present locally (a fork PR, a branch not
-  fetched), stop and ask the user to fetch it or to confirm running the fetch. Never silently mutate
-  refs.
+- **Read-only, one exception.** Only read-only git (`diff`, `log`, `show`, `merge-base`,
+  `branch --list`, `symbolic-ref`) and read-only platform fetches, plus `git fetch`/`pull` of the
+  branch under review (the sole allowed mutation). Never check out other branches, modify the
+  working tree, post/reply/resolve/vote on the PR, or write files (unless the user explicitly asks
+  to save the output).
+- **Fetch before reviewing.** Always `git fetch`/`pull` the branch under review from origin first so
+  the diff reflects the latest pushed commits. Nothing more: no checkout of other branches into the
+  working tree, no destructive ref ops, no prune, no clobbering uncommitted work.

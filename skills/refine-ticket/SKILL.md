@@ -4,7 +4,7 @@ description: Refine a development ticket into a validated, self-contained REQUIR
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.6"
+  version: "1.7"
 ---
 
 # Refine ticket
@@ -42,7 +42,11 @@ After gathering and code-verifying, **grill** the user — interview relentlessl
 what they could clarify — to close every remaining decision:
 
 - One question at a time, each with your recommended answer.
-- If a question is answerable from the codebase, answer it by exploring — don't ask.
+- If any part of a question is answerable from the codebase, explore it rather than ask — never
+  bundle a code-answerable sub-question into a grill. "Which name, type, shape, or pattern fits?" is
+  code-answerable: match the closest existing analogue, and let that verified convention outrank the
+  ticket's contrary suggestion. Grill only on what genuinely remains (product intent, cross-task
+  timing).
 - Walk each branch of the decision tree, resolving dependencies between decisions, until there is
   shared understanding and no open branch that blocks implementation.
 
