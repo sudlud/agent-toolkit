@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "0.8"
+  version: "1.0"
 ---
 
 # Review code assistant
@@ -94,7 +94,9 @@ not phrasing a well-grounded **Suggested comment** to the author as a polite que
 
 One exception: a genuine clarifying question to the author — rare, only when the diff is truly
 ambiguous about intent or correctness and the answer changes whether it is right. Never a routine
-"could you clarify?".
+"could you clarify?", and never one the PR's stated purpose already answers: a change the title,
+ticket, or description explicitly calls for is intended by definition, so don't ask whether it was
+meant or whether its prerequisites are done.
 
 **Realism gate:** judge every concern in this code's actual context. A worry that does not plausibly
 apply here (an XSS note on a value that is never rendered, an injection warning on code that touches
@@ -143,8 +145,11 @@ Local text only; write no file unless the user later asks to save it.
   adds something beyond the explanation (nuance, or softer phrasing); if it would just restate the
   explanation, give one or the other, never both near-identical. A suggested comment is the line a
   real reviewer drops: short, casual, friendly, usually one sentence. Lead with the ask; add a brief
-  why only when it isn't obvious, and skip the cause-hypothesis. Often a question
-  even when you are sure the code is wrong, naming the exact symbol (e.g. "where is `FOO` used?").
+  why only when it isn't obvious, and skip the cause-hypothesis. Reach for the plainest verb
+  ("extract", not "pull ... into a shared helper"), point by similarity ("this is similar to `X`")
+  rather than verdicts ("basically a copy of"), and soften asks with "maybe we can/should". Often a
+  question even when you are sure the code is wrong, naming the exact symbol (e.g. "where is `FOO`
+  used?").
   Even a plain nit stays warm and in collaborative "we" voice, never a curt bare statement. Never use
   dashes (em or en); write the way people actually type. This brevity and softness is tone, not
   hedging: it never lowers the evidence bar from *Grounded, not speculative*. Stay grounded in *what*
