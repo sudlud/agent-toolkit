@@ -1,6 +1,6 @@
 ---
 name: memory-doctor
-description: Audit the current project's agent-memory and, block by block, relocate each entry into a user-controlled home (project doc/skill/rule or user-level skill/rule) or archive it — draining memory so nothing uncontrolled accumulates in the agent's context. Manual-only.
+description: Audit the current project's agent-memory and, block by block, relocate each entry into a user-controlled home (project doc/skill/rule or user-level skill/rule) or archive it — draining memory so nothing uncontrolled accumulates in the agent's context.
 disable-model-invocation: true
 license: MIT
 metadata:

@@ -1,11 +1,11 @@
 ---
 name: compact-skill-creator
-description: Author or refine a skill for maximum token economy without losing intent. Use when creating a new skill or improving an existing `SKILL.md`.
+description: Author or refine a skill (`SKILL.md`) for maximum token economy without losing intent.
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.8"
+  version: "1.9"
 ---
 
 # Compact skill creator
