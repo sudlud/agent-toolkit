@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.3"
+  version: "1.4"
 ---
 
 # Memory doctor
