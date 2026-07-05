@@ -4,7 +4,7 @@ description: Turn a refined requirements document into a structured implementati
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.4"
+  version: "1.5"
 ---
 
 # Create Implementation Plan
@@ -31,11 +31,16 @@ design, not a separate phase that runs before planning starts.
 1. **Read the requirements document** the user references (e.g. a `*.REQUIREMENTS.md`). If the path
    is ambiguous, ask.
 
-2. **Verify against the actual codebase.** Open the files the requirements cite and confirm the
-   prior-art references still hold. Note anything that has shifted since the requirements were
-   written. If the requirements gate implementation on missing data or upstream work, verify that
-   gate independently — stale gating claims are a common failure mode and easily inflate into a
-   plan's first step when the data is in fact already addressable.
+2. **Verify against the actual codebase.** The requirements' verified facts are your discovery
+   baseline — never re-run searches for what they already state. Confirm a cited fact by opening
+   its cited location (identifiers outlive line numbers; search only if it moved); when the
+   requirements pin the commit they were verified at, `git diff <commit>..HEAD -- <cited paths>`
+   checks drift cheaply — an empty diff clears those facts without re-reading. Note anything that
+   has shifted since the requirements were written. Spend fresh exploration only where the
+   requirements are silent — the "how" (prior art to mirror, insertion points, test mechanics). If
+   the requirements gate implementation on missing data or upstream work, verify that gate
+   independently — stale gating claims are a common failure mode and easily inflate into a plan's
+   first step when the data is in fact already addressable.
 
 3. **Work out the approach.** This is the core of the task: design the "how" — what existing code to
    reuse, what to introduce, where each change goes, and the order of operations that avoids broken
