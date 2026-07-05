@@ -31,7 +31,8 @@ Maintenance to run from time to time, keeping your setup tidy and your context s
   session's context and spot what can be trimmed to reduce startup tokens.
   [Why this is important](https://medium.com/engineering-in-the-age-of-ai/keep-your-ai-agents-context-window-sharp-7255d83a8949).
 - **[memory-doctor](./skills/memory-doctor/SKILL.md)** — clean up the memory your agents keep
-  auto-accumulating, moving the relevant parts to the right place. ([More about this](https://medium.com/engineering-in-the-age-of-ai/keep-your-ai-agents-memory-clean-and-organized-with-memory-doctor-a79f7174f257)).
+  auto-accumulating, moving the relevant parts to the right place.
+  [More about this](https://medium.com/engineering-in-the-age-of-ai/keep-your-ai-agents-memory-clean-and-organized-with-memory-doctor-a79f7174f257).
 
 ### Task workflow
 
@@ -72,7 +73,7 @@ ticket reviews.
 
 ## Rules
 
-A set of generic, project-agnostic opinionated rules that apply to any codebase.
+A set of generic, project-agnostic, opinionated rules that apply to any codebase.
 
 - **[compact-governing-docs](./rules/compact-governing-docs.md)** — run the matching compaction
   skill before writing or editing a governing doc, so it stays compact.
@@ -81,17 +82,16 @@ A set of generic, project-agnostic opinionated rules that apply to any codebase.
 - **[no-ai-attribution](./rules/no-ai-attribution.md)** — no AI co-author trailers on commits and
   no "Generated with" footers on PRs.
 - **[no-nonsense-comments](./rules/no-nonsense-comments.md)** — write only code comments that
-  still make sense to a future reader with zero context, and prefer no comment over a
-  low-value one.
-- **[plans-directory](./rules/plans-directory.md)** — save planning documents under
-  `.claude/plans/`, one directory per task.
+  still make sense to a future reader with zero context, prefer no comment over a low-value one.
+- **[plans-directory](./rules/plans-directory.md)** — structure save plans and similar documents under
+  the project's planning directory.
 - **[self-contained-docs](./rules/self-contained-docs.md)** — keep planning and design docs
   concise and executable by a fresh session with no prior context.
 - **[self-improve-on-correction](./rules/self-improve-on-correction.md)** — when the user corrects
   something a skill or doc governs, offer to persist the lesson via
   [self-improve](./skills/self-improve/SKILL.md).
-- **[write-realistic-texts](./rules/write-realistic-texts.md)** — make user-facing text read like
-  a person wrote it, with no em dashes and no AI tells.
+- **[write-realistic-texts](./rules/write-realistic-texts.md)** — make user-facing text sound 
+  natural, no AI-generated nonsense.
 
 ## How to install
 
