@@ -6,30 +6,31 @@ Designed to work with any kind of AI agent on any kind of software development p
 
 ## Skills
 
-Agentic skills I use across all my software engineering projects, solo or in a team.
+Agentic skills I use across all my software engineering projects — solo or in a team.
 
 Not bound to any specific language or framework.
 
 ### Skill & doc authoring
 
-The tools I use to create and continuously improve the skills and docs my agents rely on.
-Following [my approach to agentic skills](https://medium.com/engineering-in-the-age-of-ai/my-approach-to-agentic-skills-e08dc6c0d1cd),
+The tools I use to create and continuously improve the skills and docs my agents rely on —
+following [my approach to agentic skills](https://medium.com/engineering-in-the-age-of-ai/my-approach-to-agentic-skills-e08dc6c0d1cd),
 I improve the behavior of my agents literally every day.
 
-- **[compact-docs-writer](./skills/compact-docs-writer/SKILL.md)**: write docs with maximum token
+- **[compact-docs-writer](./skills/compact-docs-writer/SKILL.md)** — write docs with maximum token
   economy.
-- **[compact-skill-creator](./skills/compact-skill-creator/SKILL.md)**: create or edit skills,
+- **[compact-skill-creator](./skills/compact-skill-creator/SKILL.md)** — create or edit skills,
   keeping them lean and efficient.
-- **[self-improve](./skills/self-improve/SKILL.md)**: capture a lesson into the skill or doc that
+- **[self-improve](./skills/self-improve/SKILL.md)** — capture a lesson into the skill or doc that
   governs it, so mistakes aren't repeated and agents keep getting better at the project.
 
 ### Context & memory hygiene
 
 Maintenance to run from time to time, keeping your setup tidy and your context sharp.
 
-- **[context-checkup](./skills/context-checkup/SKILL.md)**: audit what auto-loads into a session's
-  context and spot what can be trimmed to reduce startup tokens. [Why this is important](https://medium.com/engineering-in-the-age-of-ai/keep-your-ai-agents-context-window-sharp-7255d83a8949).
-- **[memory-doctor](./skills/memory-doctor/SKILL.md)**: clean up the memory your agents keep
+- **[context-checkup](./skills/context-checkup/SKILL.md)** — audit what auto-loads into a
+  session's context and spot what can be trimmed to reduce startup tokens.
+  [Why this is important](https://medium.com/engineering-in-the-age-of-ai/keep-your-ai-agents-context-window-sharp-7255d83a8949).
+- **[memory-doctor](./skills/memory-doctor/SKILL.md)** — clean up the memory your agents keep
   auto-accumulating, moving the relevant parts to the right place. ([More about this](https://medium.com/engineering-in-the-age-of-ai/keep-your-ai-agents-memory-clean-and-organized-with-memory-doctor-a79f7174f257)).
 
 ### Task workflow
@@ -38,58 +39,59 @@ My daily routine for any programming task, following the
 [RPA workflow](https://medium.com/engineering-in-the-age-of-ai/the-refine-plan-act-pattern-for-agentic-ai-coding-59ee013e4427):
 fetch a ticket, refine it, plan it, then let a fresh session execute it.
 
-- **[fetch-ticket](./skills/fetch-ticket/SKILL.md)**: download a ticket from any tracker
+- **[fetch-ticket](./skills/fetch-ticket/SKILL.md)** — download a ticket from any tracker
   (e.g. GitHub, Jira, Azure DevOps) and save it as a self-contained markdown file.
-- **[refine-ticket](./skills/refine-ticket/SKILL.md)**: define the "what" of a task: validate the
+- **[refine-ticket](./skills/refine-ticket/SKILL.md)** — define the "what" of a task: validate the
   ticket against the codebase, settle open decisions together, and save a
   self-contained requirements doc a fresh session can pick up.
-- **[create-implementation-plan](./skills/create-implementation-plan/SKILL.md)**: define the "how"
-  of a task: turn the requirements into an implementation plan, settling the technical decisions
-  together, then save it for a fresh session to execute.
-- **[create-manual-test-instructions](./skills/create-manual-test-instructions/SKILL.md)**: derive
-  manual test steps from a ticket or requirements file, useful for the developer or QA.
+- **[create-implementation-plan](./skills/create-implementation-plan/SKILL.md)** — define the
+  "how" of a task: turn the requirements into an implementation plan, settling the technical
+  decisions together, then save it for a fresh session to execute.
+- **[create-manual-test-instructions](./skills/create-manual-test-instructions/SKILL.md)** —
+  derive manual test steps from a ticket or requirements file, useful for the developer or QA.
 
 ### Review assistants
 
 Powerful review helpers that are able to quickly check the codebase when assisting with code or
 ticket reviews.
 
-- **[fetch-pr-review](./skills/fetch-pr-review/SKILL.md)**: collect the comments left by other
+- **[fetch-pr-review](./skills/fetch-pr-review/SKILL.md)** — collect the comments left by other
   reviewers on your PR and save them into a markdown doc, ready to address (or push back on), for
   example via refine-ticket.
-- **[review-code-assistant](./skills/review-code-assistant/SKILL.md)**: assist you in reviewing a
+- **[review-code-assistant](./skills/review-code-assistant/SKILL.md)** — assist you in reviewing a
   PR or branch.
-- **[review-ticket](./skills/review-ticket/SKILL.md)**: triage a ticket before anyone picks it up,
-  spotting decisions to raise with the team.
-- **[fresh-eyes-review](./skills/fresh-eyes-review/SKILL.md)**: let an agent with a fresh
+- **[review-ticket](./skills/review-ticket/SKILL.md)** — triage a ticket before anyone picks it
+  up, spotting decisions to raise with the team.
+- **[fresh-eyes-review](./skills/fresh-eyes-review/SKILL.md)** — let an agent with a fresh
   perspective review a changeset and report its findings back to the main session.
 
 ### Code checks
 
-- **[run-nx-checks](./skills/run-nx-checks/SKILL.md)**: run format, lint, test, and build on the
+- **[run-nx-checks](./skills/run-nx-checks/SKILL.md)** — run format, lint, test, and build on the
   affected projects of an Nx workspace and fix unambiguous failures.
 
 ## Rules
 
 A set of generic, project-agnostic opinionated rules that apply to any codebase.
 
-- **[compact-governing-docs](./rules/compact-governing-docs.md)**: run the matching compaction
+- **[compact-governing-docs](./rules/compact-governing-docs.md)** — run the matching compaction
   skill before writing or editing a governing doc, so it stays compact.
-- **[git-read-only-by-default](./rules/git-read-only-by-default.md)**: never commit, push, merge,
+- **[git-read-only-by-default](./rules/git-read-only-by-default.md)** — never commit, push, merge,
   or otherwise write to git without an explicit instruction.
-- **[no-ai-attribution](./rules/no-ai-attribution.md)**: no AI co-author trailers on commits and
+- **[no-ai-attribution](./rules/no-ai-attribution.md)** — no AI co-author trailers on commits and
   no "Generated with" footers on PRs.
-- **[no-nonsense-comments](./rules/no-nonsense-comments.md)**: write only code comments that still
-  make sense to a future reader with zero context, and prefer no comment over a low-value one.
-- **[plans-directory](./rules/plans-directory.md)**: save planning documents under
+- **[no-nonsense-comments](./rules/no-nonsense-comments.md)** — write only code comments that
+  still make sense to a future reader with zero context, and prefer no comment over a
+  low-value one.
+- **[plans-directory](./rules/plans-directory.md)** — save planning documents under
   `.claude/plans/`, one directory per task.
-- **[self-contained-docs](./rules/self-contained-docs.md)**: keep planning and design docs concise
-  and executable by a fresh session with no prior context.
-- **[self-improve-on-correction](./rules/self-improve-on-correction.md)**: when the user corrects
+- **[self-contained-docs](./rules/self-contained-docs.md)** — keep planning and design docs
+  concise and executable by a fresh session with no prior context.
+- **[self-improve-on-correction](./rules/self-improve-on-correction.md)** — when the user corrects
   something a skill or doc governs, offer to persist the lesson via
   [self-improve](./skills/self-improve/SKILL.md).
-- **[write-realistic-texts](./rules/write-realistic-texts.md)**: make user-facing text read like a
-  person wrote it, with no em dashes and no AI tells.
+- **[write-realistic-texts](./rules/write-realistic-texts.md)** — make user-facing text read like
+  a person wrote it, with no em dashes and no AI tells.
 
 ## How to install
 
