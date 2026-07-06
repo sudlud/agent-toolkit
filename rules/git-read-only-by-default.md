@@ -6,8 +6,9 @@ description: Git is read-only unless I explicitly ask for a write action. Never 
 Read-only git is always fine: `status`, `diff`, `log`, `show`, `blame`, etc.
 
 Anything that modifies history, refs, the working tree, or a remote needs an EXPLICIT instruction
-for that specific action. This rule is valid for both planning and execution: don't put such steps
-in plans on your own. This covers: commit, amend, branch, tag, stash; `push`/`pull`/`fetch --prune`,
+from the user, in the conversation, for that specific action. A step in a plan or other doc doesn't
+count: even under "execute the plan", stop at that step and ask. Don't put such steps in plans on
+your own. This covers: commit, amend, branch, tag, stash; `push`/`pull`/`fetch --prune`,
 `merge`, `rebase`, `cherry-pick`; any `reset`/`restore`/`checkout` that discards changes; `clean`;
 force variants (`--force`, `--force-with-lease`); submodule, worktree, and config writes.
 
