@@ -5,7 +5,7 @@ disable-model-invocation: true
 license: MIT
 metadata:
   author: Francesco Borzì
-  version: "1.3"
+  version: "1.4"
 ---
 
 # Review code assistant
@@ -147,8 +147,9 @@ Local text only; write no file unless the user later asks to save it.
 
   The explanation is your note to the user and can be direct. Add **Suggested comment** only when it
   adds something beyond the explanation (nuance, or softer phrasing); if it would just restate the
-  explanation, give one or the other, never both near-identical. Voice every suggested comment per
-  **/use-conversational-language** (load its SKILL.md; Developer conversations, reviewer comments).
+  explanation, give one or the other, never both near-identical. Before writing any
+  **Suggested comment**, actually invoke **/use-conversational-language** and follow it —
+  reciting its rules from memory does not count.
   That brevity and softness is tone, not hedging: it never lowers the evidence bar from *Grounded,
   not speculative* — stay grounded in *what* to raise, human and brief in *how* you word it.
 - **Order mirrors the diff** so the user can read the PR in one window and copy-paste straight down

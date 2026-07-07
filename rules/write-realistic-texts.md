@@ -5,7 +5,8 @@ description: Person-to-person texts follow the use-conversational-language skill
 
 Whenever writing text a human will read as if a person wrote it — chat replies, messages,
 commit messages, PR descriptions, review comments, questions for colleagues, and similar —
-load the `use-conversational-language` skill and follow its rules.
+you must actually invoke the `use-conversational-language` skill and follow its rules — reciting
+them from memory does not count.
 
 Documentation (README and similar) is out of scope: written prose conventions apply there, not
 conversational voice.
