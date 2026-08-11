@@ -65,6 +65,9 @@ Review helpers that check the codebase while assisting with code or ticket revie
   turning the accepted changes into a requirements doc.
 - **[review-code-assistant](./skills/review-code-assistant/SKILL.md)** — assist you in reviewing a
   PR or branch.
+- **[maintainer-review](./skills/maintainer-review/SKILL.md)** — review someone else's PR as the
+  maintainer deciding whether it merges: every prior comment walked, every claim verified, then
+  comment, approve or fix the contributor's branch on your go-ahead.
 - **[use-conversational-language](./skills/use-conversational-language/SKILL.md)** — the voice for
   text that should read as if a person typed it, used by the review skills for comments and
   replies and by rules for user-facing texts and code comments.
@@ -102,6 +105,9 @@ Update in one command:
 ```sh
 cd agent-toolkit && git pull && ./install.sh
 ```
+
+On Windows the entries are usually copies rather than symlinks, so updating there needs `--force`
+(see [Windows](./docs/install-skills.md#windows)).
 
 How the symlink install works and the other install methods — hand-picking skills, other agents,
 [skills.sh](https://skills.sh/), the Claude Code plugin marketplace — are covered in
@@ -172,6 +178,9 @@ flowchart TD
   refine_pr --> express["use-conversational-language"]
   review_code["review-code-assistant"] --> express
   self_review["self-review"] --> fresh_eyes["fresh-eyes-review"]
+  maintainer_review["maintainer-review"] --> review_code
+  maintainer_review --> fresh_eyes
+  maintainer_review --> express
   realistic_rule["write-realistic-texts rule"] --> express
   nonsense_rule["no-nonsense-comments rule"] --> express
   review_ticket["review-ticket"] --> fetch_ticket
